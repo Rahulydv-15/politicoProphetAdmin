@@ -1,0 +1,29 @@
+
+
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="dark-theme-form">
+  <div class="mb-3">
+    <label for="title" class="form-label text-white"
+      >Enter the title of article to be deleted</label
+    >
+    <input
+      type="text"
+      class="form-control dark-input"
+      id="title"
+      formControlName="title"
+      required
+    />
+    <div
+      *ngIf="
+        myForm.get('title')?.touched &&
+        myForm.get('title')?.hasError('required')
+      "
+      class="text-danger"
+    >
+      Title is required.
+    </div>
+  </div>
+  <p class="warning-paragraph">Warning: Deleting this article will remove it permanently.</p>
+  <button type="submit" class="btn btn-secondary" [disabled]="myForm.invalid">
+    Delete
+  </button>
+</form>

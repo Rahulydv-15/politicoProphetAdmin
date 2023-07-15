@@ -1,0 +1,25 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" class="dark-theme-form">
+    <div class="mb-3">
+      <label for="title" class="form-label text-white">Title</label>
+      <input type="text" class="form-control dark-input" id="title" formControlName="title" required>
+      <div *ngIf="myForm.get('title')?.touched && myForm.get('title')?.hasError('required')" class="text-danger">
+        Title is required.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="body" class="form-label text-white">Body</label>
+      <textarea class="form-control dark-input" id="body" formControlName="body" rows="5" required></textarea>
+      <div *ngIf="myForm.get('body')?.touched && myForm.get('body')?.hasError('required')" class="text-danger">
+        Body is required.
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="hindiBody" class="form-label text-white">Hindi Body</label>
+      <textarea class="form-control dark-input" id="hindiBody" formControlName="hindiBody" rows="5" required></textarea>
+      <div *ngIf="myForm.get('hindiBody')?.touched && myForm.get('hindiBody')?.hasError('required')" class="text-danger">
+        Hindi Body is required.
+      </div>
+    </div>
+    <button type="submit" class="btn btn-secondary" [disabled]="myForm.invalid">Submit</button>
+  </form>
+  

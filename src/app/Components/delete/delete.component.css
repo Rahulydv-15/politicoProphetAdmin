@@ -1,0 +1,21 @@
+.dark-theme-form {
+    background-color: #222;
+    color: #fff;
+    padding: 20px;
+  }
+  
+  .dark-input {
+    background-color: #333;
+    color: #fff;
+    border-color: #555;
+  }
+  
+  .dark-button {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  .warning-paragraph {
+    color: red;
+    font-weight: bold;
+  }
+  

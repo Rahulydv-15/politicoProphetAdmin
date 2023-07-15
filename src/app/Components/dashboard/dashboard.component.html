@@ -1,0 +1,95 @@
+<app-loading *ngIf="!dataRecieved" />
+<div *ngIf="dataRecieved" class="mx-2 row">
+  <div class="col col-lg-4 col-md-6 col-sm-12 col-12 my-4">
+    <div class="container p-4 bg-dark">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          src="./../../../assets/profile.png"
+          alt="profile-image"
+          height="150px"
+        />
+        <div class="text text-center">
+          <h3>{{ usersInfo.totalCount }}</h3>
+          <p>Users Visited</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col col-lg-4 col-md-6 col-sm-12 col-12 my-4">
+    <div class="container p-4 bg-dark">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          src="./../../../assets/file.png"
+          alt="profile-image"
+          height="150px"
+        />
+        <div class="text text-center">
+          <h3>{{ articles.length }}</h3>
+          <p>Articles</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col col-lg-4 col-md-12 col-sm-12 col-12 my-4">
+    <div class="container p-4 bg-dark">
+      <div class="d-flex flex-row align-items-center">
+        <img
+          src="./../../../assets/team.png"
+          alt="profile-image"
+          height="150px"
+        />
+        <div class="text text-center">
+          <h3>{{ usersInfo.uniqueCount }}</h3>
+          <p>Unique Users</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="dataRecieved" class="mx-2 row">
+  <div class="col col-lg-6 col-md-6 col-sm-12 col-12 my-4">
+    <div class="container p-4 bg-dark">
+      <div style="color: white; font-weight: 700" class="row text-center pb-4">
+        <div class="col-lg-3 col-sm-6 col-6">IP Address</div>
+        <div class="col-lg-3 d-none d-lg-block">Latitude</div>
+        <div class="col-lg-3 d-none d-lg-block">Longitude</div>
+        <div class="col-lg-3 col-sm-6 col-6">Date</div>
+      </div>
+      <div class="table-container">
+        <div
+          style="color: white"
+          class="row text-center"
+          *ngFor="let user of usersInfo.deviceInfo; let i = index"
+        >
+          <div class="col-lg-3 col-sm-6 col-6">{{ user.ipAddress }}</div>
+          <div class="col-lg-3 d-none d-lg-block">{{ user.latitude }}</div>
+          <div class="col-lg-3 d-none d-lg-block">{{ user.longitude }}</div>
+          <div class="col-lg-3 col-sm-6 col-6">{{ user.createdAt }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col col-lg-6 col-md-6 col-sm-12 col-12 my-4">
+    <div class="container p-4 bg-dark">
+      <div style="color: white; font-weight: 700" class="row text-center pb-4">
+        <div class="col-lg-2 col-sm-2 col-2">S.No.</div>
+        <div class="col-lg-4 d-none d-lg-block">ID</div>
+        <div class="col-lg-6 col-sm-10 col-10">Title</div>
+      </div>
+      <div class="table-container">
+        <div
+          style="color: white"
+          class="row text-center py-2"
+          *ngFor="let article of articles; let i = index"
+        >
+          <div class="col-lg-2 col-sm-2 col-2">{{ i + 1 }}</div>
+          <div class="col-lg-4 d-none d-lg-block">{{ article._id }}</div>
+          <div class="col-lg-6 col-sm-10 col-10">{{ article.title }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

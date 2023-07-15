@@ -1,0 +1,13 @@
+.text{
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container{
+    border-radius: 3%;
+}
+.table-container {
+    height: 300px; /* Set the desired height of the table */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
